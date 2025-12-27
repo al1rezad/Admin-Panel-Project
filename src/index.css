@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: "BBH";
+    src: url("../public/Fonts/BBHBogle-Regular.ttf");     
+}
+@font-face {
+    font-family: "serifMedium";
+    src: url("../public/Fonts/GoogleSans-Medium.ttf");     
+}
+@font-face {
+    font-family: "serifReg";
+    src: url("../public/Fonts/GoogleSans-Regular.ttf");
+}
+
+
+
+@theme {
+    --font-bbh : "BBH", sans-Serif;
+    --font-medium : "serifMedium" ;
+    --font-serifReg : "serifReg";
+    --breakpoint-custom : 650px
+}
