@@ -1,31 +1,25 @@
-import React from 'react'
 import { MdOutlineVisibilityOff } from "react-icons/md";
 import { MdOutlineVisibility } from "react-icons/md";
 import { useState } from 'react';
 
 
-
 export default function Input(props) {
+    
     const [status , setStatus] = useState("show")
-
     
     function toggle(){
         if(status === "show"){
             setStatus("hide")
         }else{
-            setStatus("show")
-        }
-    }
-
+            setStatus("show")}}
+        
     const data = {
         Email : "email",
         Password : status === "show" ? "password" : "text"
     }
 
-    
 
     
-
   return (
     
     <div className='flex flex-col gap-y-1 relative'>

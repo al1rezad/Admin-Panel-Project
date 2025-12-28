@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Firstchart from './chart/barChart'
 import PieChartWithCustomizedLabel from "./chart/circleChart"
-import Profile from './profile'
-import { Route ,Routes } from 'react-router-dom'
+
 import { Outlet } from 'react-router-dom'
 
 
@@ -10,29 +9,25 @@ export default function Dashboard(props) {
 
     const [date ,setDate] = useState(new Date())
 
+
     useEffect(()=>{  
+
         const interval = setInterval(() => {
             const time =new Date()
             setDate(time)
         }, 1000);
-        return ()=>{
-            clearInterval(interval)
-        }
+
+        // نکته جالب اینه که اگه این اینتروال رو پاک نکنم همچنان در پس زمینه ران میشه
+        // for CleanUp
+        return ()=>{ clearInterval(interval) }
         
     },[])
 
-
-    
-
-
-
-   
 
   return (
     <div className='w-[85%] flex max-custom:flex-col max-custom:gap-y-8 max-custom:w-full '>
         
 
-        
         <div className='h-[100vh] w-[25%] flex flex-col items-center py-8 justify-between px-0 max-lg:w-[30%] max-custom:!w-[100%] max-custom:flex-col  max-custom:p-0 max-custom:justify-start max-custom:h-max'>
             <div className='flex flex-col gap-2 w-[65%] max-custom:flex-row max-custom:py-4 max-custom:px-8 max-custom:w-[100%] max-custom:justify-between ' >
                 <h1 className='text-xl font-medium max-custom:text-lg '>Today Statistics</h1>

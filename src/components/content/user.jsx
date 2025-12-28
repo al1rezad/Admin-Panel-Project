@@ -3,17 +3,19 @@ import TableBody from '@mui/material/TableBody';
 import TableRow from '@mui/material/TableRow';
 import TableCell from '@mui/material/TableCell';
 import {useQuery} from "@tanstack/react-query";
-import Table from '@mui/material/Table';
-import Paper from "@mui/material/Paper";
-import TableContainer from '@mui/material/TableContainer';
 
-const fn = async ()=>{
-    const response = await fetch("./data.json")
-    if(!response.ok){ return "error : " + error.message}
-    return response.json()
-}
+
+
 
 export default function User() {
+
+    const fn = async ()=>{
+      const response = await fetch("./data.json") 
+      if(!response.ok){ return "error : " + error.message} //اگر statue response ما بین 200 تا299 باشه اوکی مقدار تروثی برمیگردونه
+      return response.json()
+      } 
+
+    // معمولا برای انتخاب پراپرتی ها useQuery از object destructurnig استفاده میکنیم
     const {data , isLoading , error , isError} = useQuery({
         queryKey : ["users"],
         queryFn : fn

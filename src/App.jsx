@@ -1,4 +1,3 @@
-import { useState,useEffect } from 'react'
 import Content from './components/content/content'
 import Dashboard from './components/dashboard/dashboard'
 import { Route , Routes , Navigate } from 'react-router-dom'
@@ -38,17 +37,7 @@ export default function App() {
   
   return (
     
-    // <div className='fixed left-0 top-0 overflow-hidden h-[100%] w-[100%] flex max-custom:flex max-custom:flex-col max-custom:overflow-auto  '>
-    //   <Sidebar></Sidebar>
-    //   <Routes>
-    //     <Route path='/' element={<Content/>}/>
-    //     <Route path='/dashboard' element={<Dashboard/>}>
-    //        <Route index element={<Profile defaultID={1} />} />
-    //       <Route path=':ID' element ={<Profile/>} />
-    //     </Route>
-    //   </Routes>
-    // </div>
-    
+
     <Routes>
       {/* صفحه لاگین و ساین این ،  */}
       <Route path="/" element={<LogIn />} />

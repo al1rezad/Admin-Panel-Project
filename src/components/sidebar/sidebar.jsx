@@ -21,7 +21,7 @@ export default function Sidebar(props) {
             <SideItem icon = {<MdAppRegistration/>} isclicked={props.isclicked} itemName = {"Registration"} value={props.value}/>
             <SideItem icon = {<MdDashboard/>} isclicked={props.isclicked} itemName = {"Dashboard"} value={props.value} />
           </div>
-            <SideItem icon = {<LuLogOut/>} itemName = {"LogOut"}/>
+            <SideItem icon = {<LuLogOut/>} itemName = "LogOut"/>
         </div>
           
         

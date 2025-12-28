@@ -1,2 +1,5 @@
 import {atom} from "jotai"
-export const ismatchedAtom = atom(false)
+export const authAtom = atom({
+    isAuthenticated : false,
+    userEmail : null
+})
