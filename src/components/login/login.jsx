@@ -45,7 +45,7 @@ export default function LogIn() {
       isAuthenticated :true,
       userEmail : email
     })
-    navigate("/registration", {replace : true})
+    navigate("/registration")
   }
 
   

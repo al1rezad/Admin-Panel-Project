@@ -5,9 +5,14 @@ import TableBox from './table';
 import axios from "axios"
 import { useState , useEffect , useRef} from 'react';
 import { Link } from 'react-router-dom';
+import { useAtom } from 'jotai';
+import { selectPart } from '../store/select';
+
+
 
 
 export default function Content() {
+  const [option, setOption]=useAtom(selectPart)
 
   // Download Link and Share Link function
   async function onclick(e){ 
@@ -134,13 +139,21 @@ useEffect(()=>{
   [])
 
 
-
+  function changeoptionHandler(e){
+    setOption(e.target.value)
+  }
+  
+  
+  
 
   return (
     <div className='p-9 w-[85%] max-custom:pt-4 max-custom:w-full'>
+
         <div className='flex justify-between mb-6 relative '>
             <input  onChange={searchHandler} value={searchValue} type="text" placeholder='search name...'  className='w-[50%] h-10 border-1 border-gray-200 py-1 px-3 outline-0 rounded-2xl 
             leading-10 max-md:text-sm max-custom:w-[100%] ' />
+
+            {/* suggestion box / autocomplete */}
             <div ref={clickOut} className={`flex bg-amber-200/90 backdrop-blur-sm  gap-0.5 transition-all flex-col absolute top-11 rounded-3xl  text-sm font-serifReg opacity-100 max-h-0 overflow-hidden
               ${suggestionBox.length>0 && isOpen
               ? "  p-6 duration-500 visible opacity-100 max-h-120 " 
@@ -149,14 +162,22 @@ useEffect(()=>{
                 `}>{item.Name}</Link>))}
             </div> 
             
-            <img src="../../public/batman.jpg" alt="" className='w-10 h-10 rounded-4xl outline-2 border-2 border-white outline-sky-600 max-custom:hidden'/>
-            
+            <img src="../../public/batman.jpg" alt="" className='w-10 h-10 rounded-4xl outline-2 border-2 border-white outline-sky-600 max-custom:hidden'/>   
         </div>
-        <div className='flex flex-row-reverse gap-x-4 mb-6 '>
+
+        <div className='flex flex-row-reverse justify-between items-center mb-6'>
+        <div className='flex flex-row-reverse gap-x-4 items-center justify-center '>
           <ContentButton icon = {<MdDownload/>} name = {"Download"} click = {()=>onclick("download")}/>
           <ContentButton icon = {<IoShareSocial/>} name = {"Share"} click = {()=>onclick("share")}/> 
+        </div>  
+           <select name="" id="" onChange={changeoptionHandler}  className=' w-25 outline-none bg-amber-200/90 font-medium text-sm px-0  py-1.5 px-2 rounded-lg '>
+            <option value="all">All</option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+           </select>
         </div>
-        <TableBox/>
+          <TableBox/>
+
     </div>
   )
 

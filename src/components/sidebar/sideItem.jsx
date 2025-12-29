@@ -14,14 +14,17 @@ export default function SideItem(props) {
     LogOut : "/"
   }
   function logoutHandler(item){
+
     if(item === "LogOut"){
       setAuth({isAuthenticated : false , userEmail : null})
-      navigate("/" ,{replace : true})
+      console.log("test");
+      
+      navigate("/" ,replace)
     }
   } 
   return (
     <div>
-      <NavLink onClick={()=>logoutHandler(props.item)} to={path[props.itemName]} className={({isActive})=> 
+      <NavLink onClick={()=>logoutHandler(props.itemName)} to={path[props.itemName]} className={({isActive})=> 
         `
             flex items-center font-medium gap-x-1.5 duration-300 transition-all p-1.5
             max-md:gap-x-1 max-md:text-xs max-custom:!text-[14px] text-white 

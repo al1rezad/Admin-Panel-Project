@@ -6,7 +6,8 @@ import LogIn from './components/login/login'
 import MainLayout from './components/login/layout'
 import Protected from './components/login/protected'
 import SignIn from './components/login/signIn'
-
+import { FaCaretDown } from "react-icons/fa6";
+import { FaCaretUp } from "react-icons/fa6";
 
 
 // function App() {
@@ -56,7 +57,8 @@ export default function App() {
         </Route>
 
       </Route>
-      {/* مسیر غیرمعتبر → لاگین */}
+      {/* درصورتی که احراز هویت صورت نگرفته
+       باشه دسترسی به بخش های دیگر یو ار ال غیر مجاز میباشد و یوزر به بخش لاگین هدایت میشه*/}
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
     

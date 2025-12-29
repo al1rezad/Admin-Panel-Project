@@ -81,6 +81,7 @@ export default function SignIn() {
         const postItem = {email : email , password : password}
         const finallArray = [...dataArray , postItem]
         localStorage.setItem("users" , JSON.stringify(finallArray))
+        
         setAuth({
           isAuthenticated : true,
           userEmail : email})
