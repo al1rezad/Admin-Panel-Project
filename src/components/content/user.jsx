@@ -27,7 +27,8 @@ export default function User(){
 
     useEffect(()=>{
       setStatus("all")
-    },[]) 
+      setFilter(data)
+    },[data]) 
 
     useEffect(()=>{
       if(status === "all"){
@@ -59,8 +60,8 @@ export default function User(){
   return (
 
           <TableBody >
-               {filter.map((item)=>(
-              
+               {filter?.map((item)=>(
+                
               <TableRow key={item.ID}>
                   <TableCell align='left'>{item.Name}</TableCell>
                   <TableCell align='right'>{item.Gender}</TableCell>
@@ -71,13 +72,7 @@ export default function User(){
               ))}
           </TableBody>
          
-        
-        
-        
-      
-   
-    
-      
+ 
     
   )
 }
